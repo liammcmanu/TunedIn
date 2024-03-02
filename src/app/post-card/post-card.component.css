@@ -1,0 +1,57 @@
+.postCard {
+	border-radius: 25px;  
+	background-color: #2C3E4C;
+	box-sizing: border-box;
+	width:fit-content;
+	padding: 5px;
+}
+
+.profilePicture {
+	margin: 0 6px 0 10px;
+	border-radius: 10px;
+	width: 25px;
+	height: 25px;
+}
+
+.profilePicture:hover {
+	filter: brightness(75%);
+ 	transition: 0.5s;
+}
+
+button:hover {
+	filter: brightness(75%);
+ 	transition: 0.5s;
+}
+
+button {
+	border-radius: 10px;
+	background-color: #1f29317e;
+	color: #FEFEFA;
+	font-size: 10px;
+	font-family: 'Lexend', sans-serif;
+	padding: 5px;
+	margin: 2px 10px 5px -2px;
+	border: none;
+	height: 25px;
+}
+
+.customReaction {
+	width: 25px;
+}
+
+.interaction {
+	display: flex;
+	justify-content: space-between;
+}
+
+.profileName {
+	max-width: 80px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.profileDetails {
+	display: flex;
+	align-items: center;
+}

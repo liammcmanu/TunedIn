@@ -1,0 +1,36 @@
+.songCard {
+	border-radius: 20px;  
+	width: 220px;
+	background-color: #2C3E4C;
+	box-shadow: 0px 0px 10px 10px #1f29317e inset;
+	margin: 5px;
+}
+
+.prompt {
+  padding: 5px;
+}
+
+.promptName {
+	margin: 10px;
+}
+
+.promptBody {
+	margin: 10px 10px 0px 10px;
+}
+
+.songDetails {
+	padding: 0px 5px 5px 5px;
+  }
+
+.nameArtist {
+	margin-left: 10px;
+
+	max-width: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.postDescription {
+	margin: 5px 10px 10px 10px;
+}
