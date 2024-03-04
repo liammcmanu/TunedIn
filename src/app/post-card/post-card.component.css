@@ -34,14 +34,17 @@
 .songCard:hover .songImage {
 	filter: brightness(60%);
 	transition: 0.5s;
+	cursor: pointer;
 }
 
 .songCard:hover .songDetails {
+	cursor: pointer;
 	visibility: visible;
 	transition: 0.5s;
 }
 
 .songCard:hover .botón {
+	cursor: pointer;
 	visibility: visible;
 	transition: 0.5s;
 }
@@ -75,13 +78,12 @@
 	margin-bottom: 20px;
 }
 
-
 .userTitle {
-	display: flex;
-	align-items: center;
+	position: absolute;
+	bottom: 60px;
 }
 
-.title:hover {
+.userTitle:hover {
 	filter: brightness(60%);
 	transition: 0.5s;
 	cursor: pointer;
@@ -101,6 +103,7 @@
 }
 
 .interactButton:hover {
+	filter: brightness(50%);
 	transition: 0.5s;
 	cursor: pointer;
 }
@@ -111,7 +114,23 @@
 	width: 40px;
 	position: absolute;
 	right: 10px;
-	background-color: #e2abab;
+	background-color: rgba(94, 94, 115, 0.101);
+	box-shadow:
+	rgba(0, 0, 0, 0.25) 0px 54px 55px,
+	rgba(0, 0, 0, 0.12) 0px -12px 30px,
+	rgba(0, 0, 0, 0.12) 0px 4px 6px,
+	rgba(0, 0, 0, 0.17) 0px 12px 13px,
+	rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.interactIcon {
+	border-radius: 50%;
+	height: 20px;
+	width: 20px;
+	position: relative;
+	padding: 10px;
+	-webkit-filter: invert(1);
+	filter: invert(1);
 }
 
 .postDescription {
@@ -144,7 +163,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	visibility: hidden;
-	z-index: 100; 
+	z-index: 100;
   }
   .fondo {
 	background: #181921b4;
@@ -154,24 +173,24 @@
 	  0 7.8px 17.9px rgba(0, 0, 0, 0.059), 0 14.6px 33.4px rgba(0, 0, 0, 0.059),
 	  0 35px 80px rgba(0, 0, 0, 0.07);
 	cursor: pointer;
-	height: 75px;
+	height: 52.5px;
 	position: absolute;
-	width:75px;
+	width:52.5px;
   }
   .botón:active .fondo {
 	background: #181921d1;
   }
   .icono {
-	height: 112.5px;
+	height: 78.75px;
 	transform: rotate(-120deg);
 	transition: transform 500ms;
-	width: 112.5px;
+	width: 78.75px;
   }
   .parte {
 	background: white;
-	height: 112.5px;
+	height: 78.75px;
 	position: absolute;
-	width: 112.5px;
+	width: 78.75px;
   }
   .izquierda {
 	clip-path: polygon(
@@ -314,10 +333,10 @@
   .puntero {
 	border-radius: 50%;
 	cursor: pointer;
-	height: 75px;
+	height: 52.5px;
 	position: absolute;
 	-webkit-tap-highlight-color: transparent;
-	width: 75px;
+	width: 52.5px;
   }
   .active .icono {
 	transform: rotate(-90deg);
@@ -458,4 +477,3 @@
 	  56.87342% 42.46916%
 	);
   }
-  
