@@ -1,18 +1,56 @@
 <div class="postCard">
 
-	<app-song-card></app-song-card>
-	
-	<span class="interaction">
-		<span class="profileDetails">
-			<img class="profilePicture" src="https://img.welt.de/img/icon/mobile211205235/2252508457-ci102l-w1024/Premiere-Of-Warner-Bros-Pictures-Journey-2-The-Mysterious-Isl.jpg" alt="Dead Profile Pic">
-			<span class="profileName smallHeading">{{profileName}}</span>
-		</span>
+	<ng-template [ngIf]="post">
 
-		<span>
-			<button class="bopReaction">🕺</button>
-			<button class="stopReaction">✋</button>
-			<button class="customReaction">+</button>
-		</span>
-	</span>
+		<div class="postDetails">
+			<div class="postTitle heading">{{post.promtName}}</div>
+			<div class="postContent smallHeading">{{post.promtBody}}</div>
+		</div>
+
+		<div class="songCard">
+			<div class="songDetails heading"><strong>{{post.songName}}</strong> - {{post.songArtist}}</div>
+
+			<div class="botón" onclick="this.classList.toggle('active')">
+				<div class="fondo" x="0" y="0" width="200" height="200"></div>
+				<div class="icono" width="200" height="200">
+				  <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
+				  <div class="parte derecha" x="0" y="0" width="200" height="200" fill="#fff"></div>
+				</div>
+				<div class="puntero"></div>
+			  </div>
+
+			<img 
+			class="songImage" 
+			src={{post.songImage}} 
+			alt=''>
+		</div>
+
+		<div class="postBackground"
+		[style.background-image]="'url(' + post.songImage + ')'">
+		</div>
+
+		<div class="postDescription">
+
+			<span class="title">
+				<img 
+				class="profilePicture"
+				src={{post.profilePicture}}
+				alt=''
+				>
+
+				<span class="heading userTitle">
+					{{post.profileName}}
+				</span>
+
+				<span class="interactButton">
+
+				</span>
+			</span>
+
+			<div class="postContent smallHeading">{{post.postDescription}}</div>
+
+		</div>
+
+	</ng-template>
 
 </div>

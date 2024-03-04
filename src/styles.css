@@ -2,21 +2,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500;700&display=swap');
 
 /* Rest of styling */
-.heading {
-	color: #FEFEFA;
-	font-size: 15px;
-	font-weight: bold;
-	font-family: 'Lexend', sans-serif;
+html {
+	scroll-snap-type: y mandatory;
+	background-color: #1f2931;
 }
 
-.smallHeading {
-	color: #FEFEFA;
-	font-size: 10px;
-	font-family: 'Lexend', sans-serif;
+@media (max-width:480px) {
+	.heading {
+		color: #FEFEFA;
+		font-size: 25px;
+		font-family: 'Lexend', sans-serif;
+	}
+
+	.smallHeading {
+		color: #FEFEFA;
+		font-size: 18px;
+		font-family: 'Lexend', sans-serif;
+	}
+
+	.textBody {
+		color: #fefefad8;
+		font-size: 15px;
+		font-family: 'Lexend', sans-serif;
+	}
 }
 
-.textBody {
-	color: #fefefad8;
-	font-size: 10px;
-	font-family: 'Lexend', sans-serif;
+@media (min-width:480px) {
+	.heading {
+		color: #FEFEFA;
+		font-size: 15px;
+		font-weight: bold;
+		font-family: 'Lexend', sans-serif;
+	}
+
+	.smallHeading {
+		color: #FEFEFA;
+		font-size: 10px;
+		font-family: 'Lexend', sans-serif;
+	}
+
+	.textBody {
+		color: #fefefad8;
+		font-size: 10px;
+		font-family: 'Lexend', sans-serif;
+	}
 }
