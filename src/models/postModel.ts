@@ -7,6 +7,7 @@ export interface Post {
 	songImage: string;
 	songAudio: string;
 	postDescription: string;
+	songLink: string;
 
 	promtName: string;
 	promtBody: string;

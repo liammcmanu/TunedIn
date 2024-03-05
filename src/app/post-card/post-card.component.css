@@ -7,13 +7,21 @@
 
 .postDetails {
 	position: absolute;
-	top: 10%;
+	top: 5%;
 	padding: 25px;
 	z-index: 10;
 }
 
 .postContent {
 	margin-top: 10px;
+}
+
+.postContentDescription {
+	margin-top: 10px;
+	max-width: calc(100% - 20px);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .postBackground {
@@ -53,11 +61,11 @@
 	border-radius: 5%;
 	height: 100%;
 	width: 100%;
-	box-shadow: 
+	box-shadow:
 	rgba(0, 0, 0, 0.25) 0px 54px 55px,
 	rgba(0, 0, 0, 0.12) 0px -12px 30px,
 	rgba(0, 0, 0, 0.12) 0px 4px 6px,
-	rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+	rgba(0, 0, 0, 0.17) 0px 12px 13px,
 	rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
@@ -81,6 +89,10 @@
 .userTitle {
 	position: absolute;
 	bottom: 60px;
+	max-width: 80%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .userTitle:hover {
@@ -114,6 +126,7 @@
 	width: 40px;
 	position: absolute;
 	right: 10px;
+	bottom: 15px;
 	background-color: rgba(94, 94, 115, 0.101);
 	box-shadow:
 	rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -136,7 +149,7 @@
 .postDescription {
 	position: absolute;
 	width: calc(100% - 65px);
-	bottom: 15%;
+	bottom: 4%;
 	padding: 25px;
 	z-index: 10;
 }

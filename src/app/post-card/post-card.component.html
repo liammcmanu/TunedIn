@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div class="postCard">
 
 	<ng-template [ngIf]="post">
@@ -8,9 +10,9 @@
 		</div>
 
 		<div class="songCard">
-			<div class="songDetails heading"><strong>{{post.songName}}</strong> - {{post.songArtist}}</div>
+			<a class="songDetails heading" [href]="post.songLink" target="_blank"><strong>{{post.songName}}</strong> - {{post.songArtist}}</a>
 
-			<div class="botón" onclick="this.classList.toggle('active')">
+			<div class="botón" onclick="this.classList.toggle('active');" (click)="play()" id="toggle">
 				<div class="fondo" x="0" y="0" width="200" height="200"></div>
 				<div class="icono" width="200" height="200">
 				  <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
@@ -19,9 +21,9 @@
 				<div class="puntero"></div>
 			  </div>
 
-			<img 
-			class="songImage" 
-			src={{post.songImage}} 
+			<img
+			class="songImage"
+			src={{post.songImage}}
 			alt=''>
 		</div>
 
@@ -42,16 +44,16 @@
 					{{post.profileName}}
 				</span>
 
-				<span class="interactButton">
-					<img
-					class="interactIcon"
-					src="https://cdn1.iconfinder.com/data/icons/web-and-user-interface-21/512/30-512.png"
-					alt=''
-					>
-				</span>
+					<span class="interactButton">
+						<img
+						class="interactIcon"
+						src="https://cdn1.iconfinder.com/data/icons/web-and-user-interface-21/512/30-512.png"
+						alt=''
+						>
+					</span>
 			</span>
 
-			<div class="postContent smallHeading">{{post.postDescription}}</div>
+			<div class="postContentDescription smallHeading">{{post.postDescription}}</div>
 
 		</div>
 

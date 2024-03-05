@@ -15,7 +15,8 @@ export class FypComponent {
 			songName: 'Everything She Wants',
 			songArtist: 'Wham!',
 			songImage: 'https://images.genius.com/555a3ebada9c980f6c256570bc51835b.1000x1000x1.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
+			songAudio: 'https://p.scdn.co/mp3-preview/a30ad785d43fb3497f875dac909de3827dad6e7f?cid=63de4a74c1264f138c773d26e975b502',
+			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
 			
 			postDescription: 'Are we whamming it up tonight? 🕺💃',
 
@@ -29,7 +30,8 @@ export class FypComponent {
 			songName: 'Shadow on the Sun',
 			songArtist: 'Audioslave',
 			songImage: 'https://i.pinimg.com/474x/25/21/fc/2521fcb9aa1b8647cf4230c3776de057.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
+			songAudio: 'https://p.scdn.co/mp3-preview/28ff311195097bc123db326164aea2fd5a00b0a5?cid=63de4a74c1264f138c773d26e975b502',
+			songLink: 'https://open.spotify.com/album/78guAsers0klWl6RwzgDLd',
 			
 			postDescription: 'Gnome gonna die tonight 😈',
 
@@ -44,6 +46,7 @@ export class FypComponent {
 			songArtist: 'Mark Ronson ft. Bruno Mars',
 			songImage: 'http://4.bp.blogspot.com/-jbwDMfDYhJA/VUSOe07Qd3I/AAAAAAAAKBo/mntiexsEs-g/s1600/uptownfunk.jpg',
 			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
+			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
 			
 			postDescription: 'Get ready to get funky! 🕺💃',
 
@@ -57,7 +60,8 @@ export class FypComponent {
 			songName: 'Back in Black',
 			songArtist: 'AC/DC',
 			songImage: 'https://gcdn.emol.cl/los-80/files/2020/11/ACDC-back-in-black-album.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
+			songAudio: 'https://p.scdn.co/mp3-preview/81e64fa3a306418f6bb51325a93df0c75ea50d42?cid=63de4a74c1264f138c773d26e975b502',
+			songLink: 'https://open.spotify.com/track/08mG3Y1vljYA6bvDt4Wqkj',
 			
 			postDescription: 'Time to rock and roll! 🤘🎸',
 
@@ -67,12 +71,13 @@ export class FypComponent {
 		{
 			profileName: 'Shmexy Lexy',
 			profilePicture: 'https://tse3.mm.bing.net/th?id=OIP.SSPcittYk46bK0_NszNVLAHaHa&pid=Api&P=0&h=180',
-			
+
 			songName: 'Everything She Wants',
 			songArtist: 'Wham!',
 			songImage: 'https://images.genius.com/555a3ebada9c980f6c256570bc51835b.1000x1000x1.jpg',
 			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
-			
+			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
+
 			postDescription: 'Are we whamming it up tonight? 🕺💃',
 
 			promtName: 'Sweaty Disco Jams',
@@ -86,6 +91,7 @@ export class FypComponent {
 			songArtist: 'Audioslave',
 			songImage: 'https://i.pinimg.com/474x/25/21/fc/2521fcb9aa1b8647cf4230c3776de057.jpg',
 			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
+			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
 			
 			postDescription: 'Gnome gonna die tonight 😈',
 
