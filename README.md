@@ -1,5 +1,7 @@
 # TunedIn
 
+# THIS PROJECT WAS CREATED BY LIAM MCMANUS, PLS DONT STEAL
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
 
 ## Development server
