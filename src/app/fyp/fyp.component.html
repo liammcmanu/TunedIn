@@ -1,7 +1,8 @@
-<ng-template 
+<ng-template
 class="scrollPage"
 ngFor let-post [ngForOf]="posts">
-	<app-post-card 
+	<app-post-card
+	#postCard
 	[post]="post">
 	</app-post-card>
 </ng-template>

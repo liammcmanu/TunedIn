@@ -23,37 +23,61 @@ a:active {
 	text-decoration: none;
 }
 
+/* Phone */
 @media (max-width:480px) {
 	.heading {
 		color: #FEFEFA;
-		font-size: 25px;
+		font-size: 4vw;
 		font-family: 'Lexend', sans-serif;
 	}
 
 	.smallHeading {
 		color: #FEFEFA;
-		font-size: 18px;
+		font-size: 3vw;
 		font-family: 'Lexend', sans-serif;
 	}
 
 	.textBody {
 		color: #fefefad8;
-		font-size: 15px;
+		font-size: 4vw;
 		font-family: 'Lexend', sans-serif;
 	}
 }
 
-@media (min-width:480px) {
+/* Bigger phone and Tablet*/
+@media (max-width:720px) {
 	.heading {
 		color: #FEFEFA;
-		font-size: 15px;
+		font-size: 6vw;
 		font-weight: bold;
 		font-family: 'Lexend', sans-serif;
 	}
 
 	.smallHeading {
 		color: #FEFEFA;
-		font-size: 10px;
+		font-size: 4vw;
+		font-family: 'Lexend', sans-serif;
+	}
+
+	.textBody {
+		color: #fefefad8;
+		font-size: 5vw;
+		font-family: 'Lexend', sans-serif;
+	}
+}
+
+/* Bigger phone and Tablet*/
+@media (max-width:2400px) {
+	.heading {
+		color: #FEFEFA;
+		font-size: 20px;
+		font-weight: bold;
+		font-family: 'Lexend', sans-serif;
+	}
+
+	.smallHeading {
+		color: #FEFEFA;
+		font-size: 15px;
 		font-family: 'Lexend', sans-serif;
 	}
 

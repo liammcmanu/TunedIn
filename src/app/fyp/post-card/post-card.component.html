@@ -5,14 +5,14 @@
 	<ng-template [ngIf]="post">
 
 		<div class="postDetails">
-			<div class="postTitle heading">{{post.promtName}}</div>
-			<div class="postContent smallHeading">{{post.promtBody}}</div>
+			<div class="postTitle heading">{{post.prompt.name}}</div>
+			<div class="postContent smallHeading">{{post.prompt.body}}</div>
 		</div>
 
 		<div class="songCard">
-			<a class="songDetails heading" [href]="post.songLink" target="_blank"><strong>{{post.songName}}</strong> - {{post.songArtist}}</a>
+			<a class="songDetails heading" [href]="post.song.link" target="_blank"><strong>{{post.song.name}}</strong> - {{post.song.artist}}</a>
 
-			<div class="botón" onclick="this.classList.toggle('active');" (click)="play()" id="toggle">
+			<div class="botón" #toggleButton onclick="this.classList.toggle('active');" (click)="play()" id="toggle">
 				<div class="fondo" x="0" y="0" width="200" height="200"></div>
 				<div class="icono" width="200" height="200">
 				  <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
@@ -23,25 +23,33 @@
 
 			<img
 			class="songImage"
-			src={{post.songImage}}
+			src={{post.song.image}}
 			alt=''>
 		</div>
 
 		<div class="postBackground"
-		[style.background-image]="'url(' + post.songImage + ')'">
+		[style.background-image]="'url(' + post.song.image + ')'">
 		</div>
+
+		<span class="bopButton" [class.illuminated]="post.userHasBopped" (click)="bop()">
+			🕺
+		</span>
+
+		<span class="stopButton" [class.illuminated]="post.userHasStopped" (click)="stop()">
+			✋
+		</span>
 
 		<div class="postDescription">
 
 			<span class="title">
 				<img
 				class="profilePicture"
-				src={{post.profilePicture}}
+				src={{post.profile.photoURL}}
 				alt=''
 				>
 
 				<span class="heading userTitle">
-					{{post.profileName}}
+					{{post.profile.displayName}}
 				</span>
 
 					<span class="interactButton">
@@ -56,6 +64,8 @@
 			<div class="postContentDescription smallHeading">{{post.postDescription}}</div>
 
 		</div>
+
+		<progress #audioProgress class="audioBar" value="0" max="100"></progress>
 
 	</ng-template>
 

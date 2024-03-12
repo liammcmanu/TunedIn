@@ -1,14 +1,28 @@
 export interface Post {
-	profileName: string;
-	profilePicture: string;
-
-	songName: string;
-	songArtist: string;
-	songImage: string;
-	songAudio: string;
 	postDescription: string;
-	songLink: string;
+	song: Song;
+	prompt: Prompt;
+	profile: User;
+	userHasBopped: boolean;
+	userHasStopped: boolean;
+}
 
-	promtName: string;
-	promtBody: string;
+export interface Song {
+	name: string;
+	artist: string;
+	image: string;
+	audio: string;
+	link: string;
+}
+export interface Prompt {
+	name: string;
+	body: string;
+}
+
+export interface User {
+	id: string;
+	email: string;
+	displayName: string;
+	photoURL: string;
+	emailVerified: boolean;
 }

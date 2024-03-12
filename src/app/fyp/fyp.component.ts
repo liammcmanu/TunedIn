@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Post } from 'src/models/postModel';
+import { Post, Prompt, Song, User } from 'src/models/postModel';
 
 @Component({
   selector: 'app-fyp',
@@ -7,96 +7,132 @@ import { Post } from 'src/models/postModel';
   styleUrls: ['./fyp.component.css']
 })
 export class FypComponent {
+
+	currentUser: User = {
+		id: '123',
+		email: 'mcmanus_liam@yahoo.com',
+		displayName: 'mcmanus_liam',
+		photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
+		emailVerified: true,
+	}
+
+	songs: Song[] = [
+		{
+			name: 'Everything She Wants',
+			artist: 'Wham!',
+			image: 'https://images.genius.com/555a3ebada9c980f6c256570bc51835b.1000x1000x1.jpg',
+			audio: 'https://p.scdn.co/mp3-preview/a30ad785d43fb3497f875dac909de3827dad6e7f?cid=63de4a74c1264f138c773d26e975b502',
+			link: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e'
+		},
+		{
+			name: 'Shadow on the Sun',
+			artist: 'Audioslave',
+			image: 'https://i.pinimg.com/474x/25/21/fc/2521fcb9aa1b8647cf4230c3776de057.jpg',
+			audio: 'https://p.scdn.co/mp3-preview/28ff311195097bc123db326164aea2fd5a00b0a5?cid=63de4a74c1264f138c773d26e975b502',
+			link: 'https://open.spotify.com/album/78guAsers0klWl6RwzgDLd'
+		},
+		{
+			name: 'Back in Black',
+			artist: 'AC/DC',
+			image: 'https://gcdn.emol.cl/los-80/files/2020/11/ACDC-back-in-black-album.jpg',
+			audio: 'https://p.scdn.co/mp3-preview/81e64fa3a306418f6bb51325a93df0c75ea50d42?cid=63de4a74c1264f138c773d26e975b502',
+			link: 'https://open.spotify.com/track/08mG3Y1vljYA6bvDt4Wqkj'
+		},
+		{
+			name: 'Stone Free',
+			artist: 'Jimmy Hendrix',
+			image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Are_You_Experienced_-_US_cover-edit.jpg/1200px-Are_You_Experienced_-_US_cover-edit.jpg',
+			audio: 'https://p.scdn.co/mp3-preview/6c3a8b4c9c6d0e9f4c0f2e2a9a3b4c5d7e8f3a6c?cid=63de4a74c1264f138c773d26e975b502',
+			link: 'https://open.spotify.com/track/6c3a8b4c9c6d0e9f4c0f2e2a9a3b4c5d7e8f3a6c'
+		},
+		{
+			name: 'STARBOY',
+			artist: 'THE WEEKEND',
+			image: 'https://upload.wikimedia.org/wikipedia/en/3/39/The_Weeknd_-_Starboy.png',
+			audio: 'https://p.scdn.co/mp3-preview/6c3a8b4c9c6d0e9f4c0f2e2a9a3b4c5d7e8f3a6c?cid=63de4a74c1264f138c773d26e975b502',
+			link: 'https://open.spotify.com/track/6c3a8b4c9c6d0e9f4c0f2e2a9a3b4c5d7e8f3a6c'
+		},
+		{
+			name: 'While my guitar gently wheeps',
+			artist: 'The Beetles',
+			image: 'https://i1.sndcdn.com/artworks-000144929417-74n783-t500x500.jpg',
+			audio: 'https://p.scdn.co/mp3-preview/6c3a8b4c9c6d0e9f4c0f2e2a9a3b4c5d7e8f3a6c?cid=63de4a74c1264f138c773d26e975b502',
+			link: 'https://open.spotify.com/track/6c3a8b4c9c6d0e9f4c0f2e2a9a3b4c5d7e8f3a6c'
+		}
+	]
+
+
+	prompts: Prompt[] = [
+		{
+			name: 'Sweaty Disco Jams',
+			body: 'A song that makes you feel like you\'re in a sweaty disco, dancing the night away. 💃🕺'
+		},
+		{
+			name: 'Kickin\' Gnome Grooves',
+			body: 'A song that makes you think you could knock out a gnome with a single kick 🍄🧙‍♂️.'
+		},
+		{
+			name: 'Funky Dance Party',
+			body: 'A song that makes you want to hit the dance floor and show off your funky moves. 🎶🔥'
+		},
+		{
+			name: 'Epic Guitar Riffs',
+			body: 'A song that features an epic guitar riff that will make your head bang. 🎶🔥'
+		},
+		{
+			name: 'I\'m not crying, you are',
+			body: 'A song to make you ball your eyes out 😭.'
+		}
+	]
+
 	posts: Post[] = [
 		{
-			profileName: 'Shmexy Lexy',
-			profilePicture: 'https://tse3.mm.bing.net/th?id=OIP.SSPcittYk46bK0_NszNVLAHaHa&pid=Api&P=0&h=180',
-			
-			songName: 'Everything She Wants',
-			songArtist: 'Wham!',
-			songImage: 'https://images.genius.com/555a3ebada9c980f6c256570bc51835b.1000x1000x1.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/a30ad785d43fb3497f875dac909de3827dad6e7f?cid=63de4a74c1264f138c773d26e975b502',
-			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
-			
 			postDescription: 'Are we whamming it up tonight? 🕺💃',
-
-			promtName: 'Sweaty Disco Jams',
-			promtBody: 'A song that makes you feel like you\'re in a sweaty disco, dancing the night away. 💃🕺'
+			song: this.songs[0],
+			prompt: this.prompts[0],
+			profile: this.currentUser,
+			userHasBopped: false,
+			userHasStopped: false
 		},
 		{
-			profileName: 'Jackity Blackity',
-			profilePicture: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
-
-			songName: 'Shadow on the Sun',
-			songArtist: 'Audioslave',
-			songImage: 'https://i.pinimg.com/474x/25/21/fc/2521fcb9aa1b8647cf4230c3776de057.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/28ff311195097bc123db326164aea2fd5a00b0a5?cid=63de4a74c1264f138c773d26e975b502',
-			songLink: 'https://open.spotify.com/album/78guAsers0klWl6RwzgDLd',
-			
-			postDescription: 'Gnome gonna die tonight 😈',
-
-			promtName: 'Kickin\' Gnome Grooves',
-			promtBody: 'A song that makes you think you could knock out a gnome with a single kick 🍄🧙‍♂️.'
+			postDescription: 'Gnome grooves for days! 🍄🧙‍♂️',
+			song: this.songs[1],
+			prompt: this.prompts[1],
+			profile: this.currentUser,
+			userHasBopped: false,
+			userHasStopped: false
 		},
 		{
-			profileName: 'Funky Monkey',
-			profilePicture: 'http://jstation0.files.wordpress.com/2010/02/funky-monkey-babys-best_cddvd.jpg',
-			
-			songName: 'Uptown Funk',
-			songArtist: 'Mark Ronson ft. Bruno Mars',
-			songImage: 'http://4.bp.blogspot.com/-jbwDMfDYhJA/VUSOe07Qd3I/AAAAAAAAKBo/mntiexsEs-g/s1600/uptownfunk.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
-			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
-			
-			postDescription: 'Get ready to get funky! 🕺💃',
-
-			promtName: 'Funky Dance Party',
-			promtBody: 'A song that makes you want to hit the dance floor and show off your funky moves. 🎶🔥'
+			postDescription: 'Stinky guitar riffs! 🎶🔥',
+			song: this.songs[2],
+			prompt: this.prompts[2],
+			profile: this.currentUser,
+			userHasBopped: false,
+			userHasStopped: false
 		},
 		{
-			profileName: 'Rockin\' Rebel',
-			profilePicture: 'https://www.onlineworldofwrestling.com/wp-content/uploads/2016/03/01-1998.jpg',
-
-			songName: 'Back in Black',
-			songArtist: 'AC/DC',
-			songImage: 'https://gcdn.emol.cl/los-80/files/2020/11/ACDC-back-in-black-album.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/81e64fa3a306418f6bb51325a93df0c75ea50d42?cid=63de4a74c1264f138c773d26e975b502',
-			songLink: 'https://open.spotify.com/track/08mG3Y1vljYA6bvDt4Wqkj',
-			
-			postDescription: 'Time to rock and roll! 🤘🎸',
-
-			promtName: 'Epic Guitar Riffs',
-			promtBody: 'A song that features an epic guitar riff that will make your head bang. 🎶🔥'
+			postDescription: 'Dreamy dingo till I die - Sean Macnamara',
+			song: this.songs[3],
+			prompt: this.prompts[0],
+			profile: this.currentUser,
+			userHasBopped: false,
+			userHasStopped: false
 		},
 		{
-			profileName: 'Shmexy Lexy',
-			profilePicture: 'https://tse3.mm.bing.net/th?id=OIP.SSPcittYk46bK0_NszNVLAHaHa&pid=Api&P=0&h=180',
-
-			songName: 'Everything She Wants',
-			songArtist: 'Wham!',
-			songImage: 'https://images.genius.com/555a3ebada9c980f6c256570bc51835b.1000x1000x1.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
-			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
-
-			postDescription: 'Are we whamming it up tonight? 🕺💃',
-
-			promtName: 'Sweaty Disco Jams',
-			promtBody: 'A song that makes you feel like you\'re in a sweaty disco, dancing the night away. 💃🕺'
+			postDescription: 'Keeping the women away with a shitty stick! 🧙‍♂️',
+			song: this.songs[4],
+			prompt: this.prompts[3],
+			profile: this.currentUser,
+			userHasBopped: false,
+			userHasStopped: false
 		},
 		{
-			profileName: 'Jackity Blackity',
-			profilePicture: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
-
-			songName: 'Shadow on the Sun',
-			songArtist: 'Audioslave',
-			songImage: 'https://i.pinimg.com/474x/25/21/fc/2521fcb9aa1b8647cf4230c3776de057.jpg',
-			songAudio: 'https://p.scdn.co/mp3-preview/2cc385470731bc540a08caef5eab31dec7b036a6?cid=63de4a74c1264f138c773d26e975b502',
-			songLink: 'https://open.spotify.com/track/2nLtzopw4rPReszdYBJU6h?si=3e3e3e3e3e3e3e3e',
-			
-			postDescription: 'Gnome gonna die tonight 😈',
-
-			promtName: 'Kickin\' Gnome Grooves',
-			promtBody: 'A song that makes you think you could knock out a gnome with a single kick 🍄🧙‍'
-		}
+			postDescription: 'My guitar been wheeping a long time 😔',
+			song: this.songs[5],
+			prompt: this.prompts[4],
+			profile: this.currentUser,
+			userHasBopped: false,
+			userHasStopped: false
+		},
 	]
 }

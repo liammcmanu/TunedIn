@@ -1,0 +1,18 @@
+<div class="profileCard">
+
+	<ng-template [ngIf]="profile">
+
+		<div class="profilePicture">
+			<img
+			class="profileImage"
+			src={{profile.photoURL}}
+			alt=''>
+		</div>
+
+		<div class="profileBackground"
+		[style.background-image]="'url(' + profile.photoURL + ')'">
+		</div>
+
+	</ng-template>
+
+</div>
