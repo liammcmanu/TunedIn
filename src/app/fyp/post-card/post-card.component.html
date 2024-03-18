@@ -34,31 +34,30 @@
 		<span class="bopButton" [class.illuminated]="post.userHasBopped" (click)="bop()">
 			🕺
 		</span>
+		<span class="bopCount smallHeading">{{post.bops}}</span>
+
 
 		<span class="stopButton" [class.illuminated]="post.userHasStopped" (click)="stop()">
 			✋
 		</span>
+		<span class="stopCount smallHeading">{{post.stops}}</span>
 
 		<div class="postDescription">
 
 			<span class="title">
-				<img
-				class="profilePicture"
-				src={{post.profile.photoURL}}
-				alt=''
-				>
+				<a href="/profile-page">
+					<img
+					class="profilePicture"
+					src={{post.profile.photoURL}}
+					alt=''
+					>
+				</a>
 
-				<span class="heading userTitle">
-					{{post.profile.displayName}}
-				</span>
-
-					<span class="interactButton">
-						<img
-						class="interactIcon"
-						src="https://cdn1.iconfinder.com/data/icons/web-and-user-interface-21/512/30-512.png"
-						alt=''
-						>
+				<a href="/profile-page">
+					<span class="heading userTitle">
+						{{post.profile.displayName}}
 					</span>
+				</a>
 			</span>
 
 			<div class="postContentDescription smallHeading">{{post.postDescription}}</div>

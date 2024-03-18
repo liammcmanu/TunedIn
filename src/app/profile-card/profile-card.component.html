@@ -1,18 +1,52 @@
 <div class="profileCard">
 
-	<ng-template [ngIf]="profile">
+	<ng-template [ngIf]="profile" else="otherTemplate">
+
+		<span class="backButton" (click)="back()" (keyup)="back()" tabindex="0">
+			👈
+		</span>
 
 		<div class="profilePicture">
 			<img
-			class="profileImage"
-			src={{profile.photoURL}}
-			alt=''>
+				class="profileImage"
+				src={{profile.photoURL}}
+				alt=''>
+		    <div class="upload">
+				📸
+			</div>
 		</div>
 
 		<div class="profileBackground"
-		[style.background-image]="'url(' + profile.photoURL + ')'">
+			[style.background-image]="'url(' + profile.photoURL + ')'">
 		</div>
 
+		<div class="contentBackground">
+			<div class="profileDetails">
+				<div class="profileName heading">{{profile.displayName}}</div>
+			</div>
+
+			<span class="profileStats">
+					<div class="stat">
+						<div class="statNumber heading">{{profile.bops}}</div>
+						<div class="statDescription">🕺</div>
+					</div>
+					<div class="stat">
+						<div class="statNumber heading">{{profile.stops}}</div>
+						<div class="statDescription">✋</div>
+					</div>
+			</span>
+
+			<span class="itemList">
+				<ng-container *ngFor="let profile of profiles;">
+					<app-list-item [profile]="profile"></app-list-item>
+				</ng-container>
+			</span>
+		</div>
+
+	</ng-template>
+
+	<ng-template #otherTemplate>
+		shitza
 	</ng-template>
 
 </div>

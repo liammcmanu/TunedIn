@@ -1,0 +1,22 @@
+.listItem {
+	width: 80%;
+	height: 60px;
+	margin: auto;
+	background-color: rgba(89, 89, 89, 0.383);
+	border-radius: 20px;
+	margin-bottom: 10px;
+}
+
+.profileImage {
+	height: 45px;
+	width: 45px;
+	border-radius: 50%;
+	padding: 7.5px;
+}
+
+.displayName {
+	position: absolute;
+	line-height: 60px;
+	text-align: center;
+	padding-left: 10px;
+}

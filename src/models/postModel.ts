@@ -5,6 +5,13 @@ export interface Post {
 	profile: User;
 	userHasBopped: boolean;
 	userHasStopped: boolean;
+	bops: number;
+	stops: number;
+}
+
+export interface bopStop {
+	post: Post;
+	user: User;
 }
 
 export interface Song {
@@ -14,6 +21,7 @@ export interface Song {
 	audio: string;
 	link: string;
 }
+
 export interface Prompt {
 	name: string;
 	body: string;
@@ -25,4 +33,6 @@ export interface User {
 	displayName: string;
 	photoURL: string;
 	emailVerified: boolean;
+	bops: number;
+	stops: number;
 }

@@ -15,6 +15,8 @@ export class AppComponent {
 	displayName: 'mcmanus_liam',
 	photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
 	emailVerified: true,
+	bops: 13,
+	stops: 324,
 	}
 
 }

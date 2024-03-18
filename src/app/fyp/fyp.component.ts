@@ -14,6 +14,8 @@ export class FypComponent {
 		displayName: 'mcmanus_liam',
 		photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
 		emailVerified: true,
+		bops: 13,
+		stops: 324,
 	}
 
 	songs: Song[] = [
@@ -92,7 +94,9 @@ export class FypComponent {
 			prompt: this.prompts[0],
 			profile: this.currentUser,
 			userHasBopped: false,
-			userHasStopped: false
+			userHasStopped: false,
+			bops: 325,
+			stops: 324,
 		},
 		{
 			postDescription: 'Gnome grooves for days! 🍄🧙‍♂️',
@@ -100,7 +104,9 @@ export class FypComponent {
 			prompt: this.prompts[1],
 			profile: this.currentUser,
 			userHasBopped: false,
-			userHasStopped: false
+			userHasStopped: false,
+			bops: 13,
+			stops: 124124,
 		},
 		{
 			postDescription: 'Stinky guitar riffs! 🎶🔥',
@@ -108,7 +114,9 @@ export class FypComponent {
 			prompt: this.prompts[2],
 			profile: this.currentUser,
 			userHasBopped: false,
-			userHasStopped: false
+			userHasStopped: false,
+			bops: 125,
+			stops: 21,
 		},
 		{
 			postDescription: 'Dreamy dingo till I die - Sean Macnamara',
@@ -116,7 +124,9 @@ export class FypComponent {
 			prompt: this.prompts[0],
 			profile: this.currentUser,
 			userHasBopped: false,
-			userHasStopped: false
+			userHasStopped: false,
+			bops: 24,
+			stops: 23,
 		},
 		{
 			postDescription: 'Keeping the women away with a shitty stick! 🧙‍♂️',
@@ -124,7 +134,9 @@ export class FypComponent {
 			prompt: this.prompts[3],
 			profile: this.currentUser,
 			userHasBopped: false,
-			userHasStopped: false
+			userHasStopped: false,
+			bops: 45,
+			stops: 35,
 		},
 		{
 			postDescription: 'My guitar been wheeping a long time 😔',
@@ -132,7 +144,19 @@ export class FypComponent {
 			prompt: this.prompts[4],
 			profile: this.currentUser,
 			userHasBopped: false,
-			userHasStopped: false
+			userHasStopped: false,
+			bops: 57,
+			stops: 23,
 		},
 	]
+
+	otherUser: User = {
+		id: '231',
+		email: 'steve_carrel@yahoo.com',
+		displayName: 'steevethepeeve',
+		photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
+		emailVerified: true,
+		bops: 13,
+		stops: 324,
+	}
 }

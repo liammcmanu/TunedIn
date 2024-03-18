@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { PostCardComponent } from './fyp/post-card/post-card.component';
 import { FypComponent } from './fyp/fyp.component';
 import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostCardComponent,
     FypComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,

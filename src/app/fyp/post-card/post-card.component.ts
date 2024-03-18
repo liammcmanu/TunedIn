@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/models/postModel';
 
 @Component({
@@ -21,6 +22,8 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 	public audio!: HTMLAudioElement;
 	public isPlaying: HTMLElement | null = null;
 	public fadeInterval: number | null = null;
+
+	constructor(private router: Router) { }
 
 	ngOnInit(): void {
 		this.audio = new Audio(this.post?.song.audio ?? '');
@@ -74,15 +77,26 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 	public bop() {
 		if (this.post) {
 			this.post.userHasBopped = !this.post.userHasBopped;
+			this.post.bops = this.post.userHasBopped ? this.post.bops + 1 : this.post.bops - 1;
+			if (this.post.userHasStopped) {
+				this.post.stops = this.post.stops - 1;
+			}
 			this.post.userHasStopped = false;
 		}
 	}
 
 	public stop() {
 		if (this.post) {
-			console.log('Stopped!');
 			this.post.userHasStopped = !this.post.userHasStopped;
+			this.post.stops = this.post.userHasStopped ? this.post.stops + 1 : this.post.stops - 1;
+			if (this.post.userHasBopped) {
+				this.post.bops = this.post.bops - 1;
+			}
 			this.post.userHasBopped = false;
 		}
+	}
+
+	public goToProfile(profileId: string | undefined) {
+		this.router.navigate(['/profile-page', profileId]);
 	}
 }

@@ -1,0 +1,12 @@
+<ng-template [ngIf]="profile" else="otherTemplate">
+	<div class="listItem">
+		<img
+		class="profileImage"
+		src={{profile.photoURL}}
+		alt=''>
+
+		<span class="displayName smallHeading">
+			{{profile.displayName}}
+		</span>
+	</div>
+</ng-template>

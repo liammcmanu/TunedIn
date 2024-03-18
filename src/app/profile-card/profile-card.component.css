@@ -9,7 +9,7 @@
 	height: 100%;
 	width: 100%;
 	top: 0;
-	filter: blur(100px) brightness(40%);
+	filter: blur(60px) brightness(20%);
 	background-size: cover;
 	background-position: center;
 	z-index: -1;
@@ -23,6 +23,7 @@
 	rgba(0, 0, 0, 0.12) 0px 4px 6px,
 	rgba(0, 0, 0, 0.17) 0px 12px 13px,
 	rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	width: 150px
 }
 
 .profilePicture {
@@ -41,3 +42,102 @@
 	transition: 0.5s;
 	cursor: pointer;
 }
+
+.backButton {
+	font-size: 2.5vh;
+	border-radius: 50%;
+	height: 5vh;
+	width: 5vh;
+	position: absolute;
+	text-align: center;
+	line-height: 5vh;
+	left: 5%;
+	top: 5%;
+	background-color:rgba(255, 255, 255, 0.101);
+	box-shadow:
+	rgba(0, 0, 0, 0.25) 0px 54px 55px,
+	rgba(0, 0, 0, 0.12) 0px -12px 30px,
+	rgba(0, 0, 0, 0.12) 0px 4px 6px,
+	rgba(0, 0, 0, 0.17) 0px 12px 13px,
+	rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.backButton:hover {
+	background-color: rgba(199, 198, 254, 0.081);
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+.backButton:active {
+	filter: brightness(60%);
+	transition: 0.5s;
+}
+
+.contentBackground {
+	position: absolute;
+	top: 35%;
+	height: 65%;
+	width: 100%;
+	background-color: rgba(101, 101, 101, 0.204);
+	z-index: -1;
+}
+
+.profileDetails {
+	position: absolute;
+	margin-top: 11vh;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 1;
+}
+
+.profileStats {
+	position: absolute;
+	margin-top: 20vh;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+
+.stat {
+	margin-left: 35px;
+	margin-right: 35px;
+	background-color: rgba(89, 89, 89, 0.383);
+	padding: 10px;
+	min-width: 50px;
+	border-radius: 10px;
+}
+
+.statDescription {
+	font-size: 2.5vh;
+}
+
+.profilePicture:hover .profileImage {
+	filter: brightness(60%);
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+.profilePicture:hover .upload {
+	cursor: pointer;
+	visibility: visible;
+	transition: 0.5s;
+}
+
+.upload {
+	visibility: hidden;
+	text-align: center;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 7vh;
+}
+
+.itemList {
+	position: relative;
+	top: 280px;
+}
+
