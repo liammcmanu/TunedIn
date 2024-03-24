@@ -78,6 +78,7 @@ html, body {
 	border: none;
 	outline:none;
 }
+
 .form-control:active {
 	border: white 2px solid;
 	outline:none;

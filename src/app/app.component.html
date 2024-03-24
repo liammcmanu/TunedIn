@@ -1,5 +1,23 @@
 <router-outlet></router-outlet>
 
-<div class="dropdown" *ngIf="!isSignupOrSignInScreen && (appService.loading | async) === false">
-	<button class="dropdown-button" (click)="logout()">🍔</button>
+<div class="header" *ngIf="!isSignupOrSignInScreen && (appService.loading | async) === false">
+
+	<span class="title">
+		<a href="/profile">
+			<img
+				class="profilePicture"
+				[src]="user?.photoURL || 'https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg'"
+				alt=""
+			>
+		</a>
+
+		<a href="/profile">
+			<span class="smallHeading userTitle">
+				{{user?.username}}
+			</span>
+		</a>
+	</span>
+
+	<input class="search smallHeading" placeholder="Search 🔍">
+
 </div>
