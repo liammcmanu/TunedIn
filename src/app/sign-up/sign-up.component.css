@@ -1,0 +1,139 @@
+.background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	filter: blur(20px) brightness(20%);
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.title {
+	color: #FEFEFA;
+	font-size: 10vw;
+	font-family: 'Lexend', sans-serif;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+.subtitle {
+	margin-top: 0;
+	color: #FEFEFA;
+	font-size: 5vh;
+	font-family: 'Lexend', sans-serif;
+	font-weight: bold;
+}
+
+.menuText {
+	position: absolute;
+	top: 40%;
+	transform: translateY(-50%);
+	margin-left: 7%;
+}
+
+.signInSection {
+	position: absolute;
+	top: 50%;
+	right: 10%;
+	transform: translate(0%, -50%);
+	padding: 50px;
+	border-radius: 10px;
+	text-align: center;
+	width: 20%;
+}
+
+.Heading {
+	font-size: 150%;
+}
+
+.form-control {
+	width: 100%;
+	height: 42px;
+	border-radius: 20px;
+	padding-left: 30px;
+	margin-top: 10px;
+	background-color: #6d6d6d87;
+	border-style: none;
+	color: rgb(255, 255, 255);
+	font-family: 'Lexend', sans-serif;
+	font-weight: bold;
+}
+
+.form-control::placeholder {
+	color:rgba(35, 35, 35, 0.746);;
+}
+
+.form-control:hover {
+	background-color:#aaaaaa6b;
+	border: white 2px solid;
+	border: none;
+	outline:none;
+}
+.form-control:active {
+	border: white 2px solid;
+	outline:none;
+}
+
+.form-control:focus {
+	border: white 2px solid;
+	outline:none;
+}
+
+.link {
+	margin-top: 0;
+	color: aquamarine;
+}
+
+.submit {
+	margin-top: 10px;
+	font-size: 100%;
+	width: 60%;
+	height: 42px;
+	border-radius: 20px;
+	background-color: rgba(24, 180, 79, 0.83);
+	border-style: none;
+	color: white;
+	font-family: 'Lexend', sans-serif;
+	font-weight: bold;
+}
+
+.submit:hover {
+	background-color: rgb(19, 134, 59);
+	cursor: pointer;
+}
+
+.error {
+	color: rgba(255, 77, 0, 0.512);
+	font-size: 1.7vh;
+	margin-top: 10px;
+	font-family: 'Lexend', sans-serif;
+	font-weight: bold;
+}
+
+.password-container {
+	width: 100%;
+	position: relative;
+}
+
+.revealPassword {
+	position: absolute;
+	right: 10px;
+	top: 15px;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	font-size: large;
+}
+
+.error-input {
+	border: 2px solid rgba(255, 77, 0, 0.512);;
+  }

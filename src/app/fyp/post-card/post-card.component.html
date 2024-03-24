@@ -1,16 +1,16 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
-<div class="postCard">
+<div class="postCard" *ngIf="!loading">
 
 	<ng-template [ngIf]="post">
 
 		<div class="postDetails">
-			<div class="postTitle heading">{{post.prompt.name}}</div>
-			<div class="postContent smallHeading">{{post.prompt.body}}</div>
+			<div class="postTitle heading">Prompt Title</div>
+			<div class="postContent smallHeading">Prompt Description</div>
 		</div>
 
 		<div class="songCard">
-			<a class="songDetails heading" [href]="post.song.link" target="_blank"><strong>{{post.song.name}}</strong> - {{post.song.artist}}</a>
+			<a class="songDetails heading" [href]="post.songLink" target="_blank"><strong>{{post.songTitle}}</strong> - {{post.songArtits}}</a>
 
 			<div class="botón" #toggleButton onclick="this.classList.toggle('active');" (click)="play()" id="toggle">
 				<div class="fondo" x="0" y="0" width="200" height="200"></div>
@@ -23,44 +23,44 @@
 
 			<img
 			class="songImage"
-			src={{post.song.image}}
+			src={{post.songArt}}
 			alt=''>
 		</div>
 
 		<div class="postBackground"
-		[style.background-image]="'url(' + post.song.image + ')'">
+		[style.background-image]="'url(' + post.songArt + ')'">
 		</div>
 
-		<span class="bopButton" [class.illuminated]="post.userHasBopped" (click)="bop()">
+		<span class="bopButton" [class.illuminated]="userHasBopped" (click)="bop()">
 			🕺
 		</span>
-		<span class="bopCount smallHeading">{{post.bops}}</span>
+		<span class="bopCount smallHeading">{{bops}}</span>
 
 
-		<span class="stopButton" [class.illuminated]="post.userHasStopped" (click)="stop()">
+		<span class="stopButton" [class.illuminated]="userHasStopped" (click)="stop()">
 			✋
 		</span>
-		<span class="stopCount smallHeading">{{post.stops}}</span>
+		<span class="stopCount smallHeading">{{stops}}</span>
 
 		<div class="postDescription">
 
 			<span class="title">
-				<a href="/profile-page">
+				<a href="/profile">
 					<img
 					class="profilePicture"
-					src={{post.profile.photoURL}}
+					src={{user?.photoURL}}
 					alt=''
 					>
 				</a>
 
-				<a href="/profile-page">
+				<a href="/profile">
 					<span class="heading userTitle">
-						{{post.profile.displayName}}
+						{{user?.username}}
 					</span>
 				</a>
 			</span>
 
-			<div class="postContentDescription smallHeading">{{post.postDescription}}</div>
+			<div class="postContentDescription smallHeading">{{post.description}}</div>
 
 		</div>
 

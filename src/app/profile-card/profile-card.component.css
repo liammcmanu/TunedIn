@@ -78,7 +78,7 @@
 	top: 35%;
 	height: 65%;
 	width: 100%;
-	background-color: rgba(101, 101, 101, 0.204);
+	background-color: rgba(58, 58, 58, 0.204);
 	z-index: -1;
 }
 
@@ -140,4 +140,35 @@
 	position: relative;
 	top: 280px;
 }
+
+.loader {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	display: block;
+	margin:15px auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #FFF;
+	box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+	box-sizing: border-box;
+	animation: shadowPulse 2s linear infinite;
+  }
+
+  @keyframes shadowPulse {
+	33% {
+	  background: #FFF;
+	  box-shadow: -24px 0  rgba(24, 180, 79, 0.83), 24px 0 #FFF;
+	}
+	66% {
+	  background: rgba(24, 180, 79, 0.83);
+	  box-shadow: -24px 0 #FFF, 24px 0 #FFF;
+	}
+	100% {
+	  background: #FFF;
+	  box-shadow: -24px 0 rgba(24, 180, 79, 0.83), 24px 0 rgba(24, 180, 79, 0.83);
+	}
+  }
 

@@ -1,1 +1,5 @@
 <router-outlet></router-outlet>
+
+<div class="dropdown" *ngIf="!isSignupOrSignInScreen && (appService.loading | async) === false">
+	<button class="dropdown-button" (click)="logout()">🍔</button>
+</div>

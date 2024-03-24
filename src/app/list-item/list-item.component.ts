@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { User } from 'src/models/postModel';
+import { UserModel } from 'src/models/postModel';
 
 @Component({
   selector: 'app-list-item',
@@ -9,6 +9,6 @@ import { User } from 'src/models/postModel';
 export class ListItemComponent {
 
 	@Input()
-	profile: User | undefined;
+	profile: UserModel | undefined;
 
 }

@@ -1,8 +1,10 @@
-<ng-template
-class="scrollPage"
-ngFor let-post [ngForOf]="posts">
-	<app-post-card
-	#postCard
-	[post]="post">
-	</app-post-card>
-</ng-template>
+<div *ngIf="(appService.loading | async) === true">
+	<app-background></app-background>
+	<span class="loader"></span>
+</div>
+
+<ng-container *ngIf="posts?.length !> 1 && (appService.loading | async) === false">
+	<ng-template class="scrollPage" ngFor let-post [ngForOf]="posts">
+	  <app-post-card #postCard [post]="post"></app-post-card>
+	</ng-template>
+  </ng-container>

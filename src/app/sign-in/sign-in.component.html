@@ -1,0 +1,43 @@
+<app-background></app-background>
+
+<div class="menuText">
+	<p class="title">TunedIn</p>
+	<p class="subtitle">BOP OR STOP</p>
+</div>
+
+<div class="signInSection">
+
+	<div class="Heading">
+		<p class="signInSectionTitle">Sign In</p>
+	</div>
+
+	<div class="signInSectionBody">
+		<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+
+			<div class="form-group">
+				<input type="text" id="username" name="username" class="form-control" placeholder="Username" formControlName="username" required  [ngClass]="{'error-input': signInForm.controls['username'].invalid && signInForm.controls['username'].touched}">
+				<div *ngIf="signInForm.controls['username'].invalid && signInForm.controls['username'].touched" id="invalidUsername" class="error">You must enter a username</div>
+			</div>
+
+			<div class="form-group">
+				<div class="password-container">
+					<input #passwordField type="password" id="password" name="password" class="form-control" placeholder="Password" formControlName="password" required [ngClass]="{'error-input': signInForm.controls['password'].invalid && signInForm.controls['password'].touched}">
+					<button id="passwordReveal" class="revealPassword" type="button" (mousedown)="revealPassword(passwordField, 'passwordReveal')">🙈</button>
+				</div>
+				<div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+					{{getPasswordErrorMessage()}}
+				  </div>
+			</div>
+
+			<div *ngIf="invalid" class="error">Your Password or Username is incorrect</div>
+
+			<div class="smallHeading">
+				<p>Don't have an account? <a class="link" routerLink="/sign-up">Sign Up</a></p>
+			</div>
+
+			<button type="submit" class="submit">Sign In</button>
+
+		</form>
+	</div>
+
+</div>

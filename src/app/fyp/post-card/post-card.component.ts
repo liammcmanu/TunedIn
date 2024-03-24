@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Post } from 'src/models/postModel';
+import { ObjectId } from 'mongodb';
+import { AppService } from 'src/app/app.service';
+import { PostModel, UserModel, PromptModel } from 'src/models/postModel';
 
 @Component({
 	selector: 'app-post-card',
@@ -15,19 +17,35 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 	@ViewChild('stop') stopButton!: ElementRef;
 
 	@Input()
-	post: Post | undefined;
+	post: PostModel | undefined;
+	user: UserModel | undefined;
+	prompt: PromptModel | undefined;
+	loading: boolean | undefined;
 
-	// Define the fade duration in seconds
-	public fadeDuration = 2;
 	public audio!: HTMLAudioElement;
 	public isPlaying: HTMLElement | null = null;
-	public fadeInterval: number | null = null;
+	public bops: number | undefined;
+	public stops: number | undefined;
+	public userHasBopped: boolean | undefined;
+	public userHasStopped: boolean | undefined;
 
-	constructor(private router: Router) { }
+	constructor(private router: Router, private appService: AppService) { }
 
 	ngOnInit(): void {
-		this.audio = new Audio(this.post?.song.audio ?? '');
+		if (this.post) {
+			this.appService.findProfile(this.post.user).subscribe(
+				(user: any) => {
+					this.user = user
+					setTimeout(() => {
+						this.loading = false
+					}, 2000);
+				}
+			);
+		}
+		this.audio = new Audio(this.post?.audio ?? '');
 		this.isPlaying = document.getElementById('toggle');
+		this.getBops();
+		this.getStops();
 	}
 
 	ngOnDestroy(): void {
@@ -35,6 +53,7 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 		this.isPlaying?.classList.toggle('active');
 		this.audio.currentTime = 0;
 	}
+
 
 	ngAfterViewInit(): void {
 		const updateProgressBar = () => {
@@ -74,26 +93,44 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 		}
 	}
 
-	public bop() {
-		if (this.post) {
-			this.post.userHasBopped = !this.post.userHasBopped;
-			this.post.bops = this.post.userHasBopped ? this.post.bops + 1 : this.post.bops - 1;
-			if (this.post.userHasStopped) {
-				this.post.stops = this.post.stops - 1;
-			}
-			this.post.userHasStopped = false;
+	public getBops() {
+		if (this.post?._id) {
+			this.appService.getPostBops(this.post?._id).subscribe((value: any) => {
+				this.bops = value.count;
+			});
 		}
 	}
 
-	public stop() {
-		if (this.post) {
-			this.post.userHasStopped = !this.post.userHasStopped;
-			this.post.stops = this.post.userHasStopped ? this.post.stops + 1 : this.post.stops - 1;
-			if (this.post.userHasBopped) {
-				this.post.bops = this.post.bops - 1;
-			}
-			this.post.userHasBopped = false;
+	public getStops() {
+		if (this.post?._id) {
+			this.appService.getPostStops(this.post?._id).subscribe((value: any) => {
+				this.stops = value.count;
+			});
 		}
+	}
+
+	public getUserHasBopped() {
+		if (this.post?._id) {
+			this.appService.userHasBopped(this.post?._id).subscribe((value: any) => {
+				this.userHasBopped = value.bopped;
+			});
+		}
+	}
+
+	public getUserHasStopped() {
+		if (this.post?._id) {
+			this.appService.userHasStopped(this.post?._id).subscribe((value: any) => {
+				this.userHasBopped = value.stopped;
+			});
+		}
+	}
+
+	public bop() {
+		//
+	}
+
+	public stop() {
+		// 	if (this.post) {
 	}
 
 	public goToProfile(profileId: string | undefined) {

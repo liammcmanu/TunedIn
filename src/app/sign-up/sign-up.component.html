@@ -1,0 +1,52 @@
+<app-background></app-background>
+
+<div class="menuText">
+	<p class="title">TunedIn</p>
+	<p class="subtitle">BOP OR STOP</p>
+</div>
+
+<div class="signInSection">
+
+	<div class="Heading">
+		<p class="signInSectionTitle">Sign Up</p>
+	</div>
+
+	<div class="signInSectionBody">
+		<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+			<div class="form-group">
+				<input type="text" id="username" name="username" class="form-control" placeholder="Username" formControlName="username" required [ngClass]="{'error-input': signUpForm.controls['username'].invalid && signUpForm.controls['username'].touched}">
+				<div *ngIf="signUpForm.controls['username'].invalid && signUpForm.controls['username'].touched" id="invalidUsername" class="error">You must enter a username</div>
+			</div>
+
+			<div class="form-group">
+				<div class="password-container">
+					<input #passwordField type="password" id="password" name="password" class="form-control" placeholder="Password" formControlName="password" required [ngClass]="{'error-input': password?.invalid && (password?.dirty || password?.touched)}">
+					<button id="passwordReveal" class="revealPassword" type="button" (mousedown)="revealPassword(passwordField, 'passwordReveal')">🙈</button>
+				</div>
+				<div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+					{{getPasswordErrorMessage()}}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="password-container">
+					<input #confirmPasswordField type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword" required [ngClass]="{'error-input': signUpForm.controls['confirmPassword'].invalid && signUpForm.controls['confirmPassword'].touched}">
+					<button id="passwordConfirmReveal" class="revealPassword" type="button" (mousedown)="revealPassword(confirmPasswordField, 'passwordConfirmReveal')">🙈</button>
+				</div>
+				<div *ngIf='signUpForm.controls["confirmPassword"].value !== signUpForm.controls["password"].value' class="error">Passwords don't match</div>
+			</div>
+
+			<div *ngIf="invalid" class="error">This username is taken</div>
+
+			<div class="smallHeading">
+				<p>Already have an account? <a class="link" routerLink="/sign-in">Sign In</a></p>
+			</div>
+
+			<button type="submit" class="submit">Sign Up</button>
+
+		</form>
+	</div>
+
+</div>
+

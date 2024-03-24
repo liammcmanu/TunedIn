@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/models/postModel';
+import { UserModel } from 'src/models/postModel';
 import { Location } from '@angular/common';
+import { AppService } from '../app.service';
+import { Router } from '@angular/router';
+import { set } from 'mongoose';
 
 @Component({
   selector: 'app-profile-card',
@@ -9,51 +12,26 @@ import { Location } from '@angular/common';
 })
 export class ProfileCardComponent implements OnInit {
 
-	public profile: User | undefined;
-	public profiles: User[] | undefined;
+	public profile: UserModel | undefined;
+	public profiles: UserModel[] | undefined;
 
-	constructor(private _location: Location) {}
+	constructor(private _location: Location, public appService: AppService, private router: Router) {}
 
 	ngOnInit() {
-	this.profile = {
-		id: '123',
-		email: 'mcmanus_liam@yahoo.com',
-		displayName: 'mcmanus_liam',
-		photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
-		emailVerified: true,
-		bops: 13,
-		stops: 324,
-		}
-	
-	this.profiles = [
-		{
-			id: '123',
-			email: 'mcmanus_liam@yahoo.com',
-			displayName: 'mcmanus_liam',
-			photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
-			emailVerified: true,
-			bops: 13,
-			stops: 324,
-		},
-		{
-			id: '123',
-			email: 'mcmanus_liam@yahoo.com',
-			displayName: 'stevenMan',
-			photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
-			emailVerified: true,
-			bops: 13,
-			stops: 324,
-		},
-		{
-			id: '123',
-			email: 'mcmanus_liam@yahoo.com',
-			displayName: 'RapeyRonald',
-			photoURL: 'https://tse1.mm.bing.net/th?id=OIP.zE9UoKIthlAzXFQgVgmKqgHaIT&pid=Api&P=0&h=180',
-			emailVerified: true,
-			bops: 13,
-			stops: 324,
-		},
-	]
+		this.appService.initialising();
+		this.appService.returnCurrentUser().subscribe((value: any) => {
+			if (!value.id) {
+				this.router.navigate(['/sign-in']);
+			}
+		});
+		console.log(this.appService.currentUser)
+		this.appService.getProfiles.subscribe((profiles: any) => {
+			this.profiles = profiles;
+			this.profile = profiles[0]
+			setTimeout(() => {
+				this.appService.loading.next(false);
+			}, 1000);
+		});
 	}
 
 	back() {

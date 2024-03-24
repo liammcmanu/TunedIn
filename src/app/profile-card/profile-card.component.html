@@ -1,4 +1,9 @@
-<div class="profileCard">
+<div *ngIf="(appService.loading | async) === true">
+	<app-background></app-background>
+	<span class="loader"></span>
+</div>
+
+<div class="profileCard" *ngIf="(appService.loading | async) === false">
 
 	<ng-template [ngIf]="profile" else="otherTemplate">
 
@@ -22,16 +27,16 @@
 
 		<div class="contentBackground">
 			<div class="profileDetails">
-				<div class="profileName heading">{{profile.displayName}}</div>
+				<div class="profileName heading">{{profile.username}}</div>
 			</div>
 
 			<span class="profileStats">
 					<div class="stat">
-						<div class="statNumber heading">{{profile.bops}}</div>
+						<div class="statNumber heading">{{profile.bops.length}}</div>
 						<div class="statDescription">🕺</div>
 					</div>
 					<div class="stat">
-						<div class="statNumber heading">{{profile.stops}}</div>
+						<div class="statNumber heading">{{profile.stops.length}}</div>
 						<div class="statDescription">✋</div>
 					</div>
 			</span>
