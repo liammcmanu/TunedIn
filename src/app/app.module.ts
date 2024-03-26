@@ -14,6 +14,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BackgroundComponent } from './background/background.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { SlugifyPipe } from 'src/pipes/slugify,.pipe';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { BackgroundComponent } from './background/background.component';
     SignInComponent,
     SignUpComponent,
     NotFoundComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    CreatePostComponent,
+	SlugifyPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 	HttpClientModule,
 	ReactiveFormsModule,
-	MatSnackBarModule
+	MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

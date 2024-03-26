@@ -1,23 +1,26 @@
 <router-outlet></router-outlet>
 
-<div class="header" *ngIf="!isSignupOrSignInScreen && (appService.loading | async) === false">
+<div class="desktop">
+	<div class="header" *ngIf="!isSignupOrSignInScreen && (appService.loading | async) === false">
 
-	<span class="title">
-		<a href="/profile">
-			<img
-				class="profilePicture"
-				[src]="user?.photoURL || 'https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg'"
-				alt=""
-			>
-		</a>
+		<span class="title">
+			<a href="/profile">
+				<img
+					class="profilePicture"
+					[src]="user?.photoURL || 'https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg'"
+					alt=""
+				>
+			</a>
 
-		<a href="/profile">
-			<span class="smallHeading userTitle">
-				{{user?.username}}
-			</span>
-		</a>
-	</span>
+			<a href="/profile">
+				<span class="smallHeading userTitle">
+					{{user?.username}}
+				</span>
+			</a>
+		</span>
 
-	<input class="search smallHeading" placeholder="Search 🔍">
+		<input #searchInput class="search smallHeading" placeholder="Search 🔍">
+		<button type="submit" class="submit-button" (click)="search()">Submit</button>
 
+	</div>
 </div>
