@@ -21,18 +21,18 @@ export class AppComponent implements OnInit{
 
   constructor(public appService: AppService, public spotifyService: SpotifyService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit() {
+ngOnInit() {
 	this.appService.initialising();
 	this.router.events.subscribe(() => {
 		this.isSignupOrSignInScreen = this.router.url === '/sign-in' || this.router.url === '/sign-up';
 	});
-	const userId = this.appService.getCurrentUser()
+	const userId = this.appService.getCurrentUser();
 	if (userId) {
 		this.appService.findProfile(userId).subscribe((value: any) => {
 			this.user = value;
-		})
-		}
+		});
 	}
+}
 
 	search() {
 		const searchValue = this.searchInput?.nativeElement.value ?? '';

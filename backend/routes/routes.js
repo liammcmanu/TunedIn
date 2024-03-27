@@ -2,6 +2,8 @@ var express = require("express");
 var ObjectId = require("mongodb").ObjectId;
 var { user, posts, prompts, bops, stops } = require("../profile-schema.js");
 var app = express();
+var spotify = require('../spotify/routes.js');
+var bycrpt = require('bcryptjs');
 
 var currentUser = undefined;
 
@@ -14,6 +16,8 @@ app.use(function (req, res, next) {
 	next();
 
 })
+
+app.use('/spotify', spotify)
 
 app.post("/current-user", (req) => {
 	currentUser = req.body.id
@@ -47,7 +51,7 @@ app.post("/profile", async (req, res) => {
 		const profile = new user({
 			_id: new ObjectId(),
 			username: req.body.username,
-			password: req.body.password,
+			password: bycrpt.hashSync(req.body.password, 10),
 			posts: [],
 			matches: []
 		});
@@ -72,7 +76,7 @@ app.get("/authUser", async (req, res) => {
 	try {
 		const profile = await user.findOne({ username: req.query.id });
 		if (profile) {
-			if (profile.password === req.query.password) {
+			if (bycrpt.compareSync(req.query.password, profile.password)) {
 				res.send({ authenticated: true, id: profile._id});
 			} else {
 				res.send({ authenticated: false });

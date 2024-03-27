@@ -52,10 +52,12 @@ export class AppService{
   }
 
   getCurrentUser(){
+	const currentUser = this.currentUser
     this.http.get('http://localhost:3000/current-user').subscribe((value: any) => {
       this.currentUser = value
-      return value
-  })}
+	})
+	return currentUser
+}
 
   returnCurrentUser(){
 	return this.http.get('http://localhost:3000/current-user')
