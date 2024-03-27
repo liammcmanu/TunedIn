@@ -23,7 +23,7 @@
 	height: 100%;
 	width: 100%;
 	top: 0;
-	filter: blur(60px) brightness(20%);
+	filter: blur(15px) brightness(5%);
 	background-size: cover;
 	background-position: center;
 	z-index: -1;

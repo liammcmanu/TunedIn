@@ -1,8 +1,8 @@
 var express = require("express");
 var spotifyService = require("./spotify.service.js");
-var router = express.Router();
+var spotifyRouter = express.Router();
 
-router.get("/song", async (req, res) => {
+spotifyRouter.get("/song", async (req, res) => {
 	const query = req.query.q;
 	const songs = await spotifyService.searchSongs(query);
 	songs.forEach(song => {
@@ -12,4 +12,4 @@ router.get("/song", async (req, res) => {
 	res.send(songs);
 });
 
-module.exports = router;
+module.exports = spotifyRouter;

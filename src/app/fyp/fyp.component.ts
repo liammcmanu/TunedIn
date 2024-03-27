@@ -28,11 +28,9 @@ export class FypComponent implements OnInit {
 
 	ngOnInit() {
 		this.appService.loading.next(true);
-		this.appService.returnCurrentUser().subscribe((value: any) => {
-			if (!value.id) {
-				this.router.navigate(['/sign-in']);
-			}
-		});
+		if (!this.appService.getCurrentUser()) {
+			this.router.navigate(['/sign-in']);
+		}
 		try {
 			this.appService.initialising();
 			this.appService.getPosts.subscribe((posts: any) => {

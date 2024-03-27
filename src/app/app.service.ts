@@ -21,9 +21,7 @@ export class AppService{
 
   initialising() {
 
-	this.http.get('http://localhost:3000/current-user', {responseType: 'text'}).subscribe((value: string) => {
-		this.currentUser = value;
-	});
+	this.currentUser = localStorage.getItem('currentUser') || '';
 
 	this.http.get('http://localhost:3000/profiles')
 	.subscribe((profiles: object) => {
@@ -45,26 +43,17 @@ export class AppService{
   }
 
   setCurrentUser(id: string){
-	this.currentUser = id
-	this.http.post('http://localhost:3000/current-user', { id: id }).subscribe(
-		postedValue => { console.log('posted: ', postedValue); }
-	);
+	console.log(id);
+	this.currentUser = id;
+	localStorage.setItem('currentUser', id);
   }
 
   getCurrentUser(){
-	const currentUser = this.currentUser
-    this.http.get('http://localhost:3000/current-user').subscribe((value: any) => {
-      this.currentUser = value
-	})
-	return currentUser
-}
-
-  returnCurrentUser(){
-	return this.http.get('http://localhost:3000/current-user')
+	return this.currentUser;
   }
 
-  authUser(id: string, password: string){
-	return this.http.get('http://localhost:3000/authUser', {params: { id: id, password: password }});
+  authUser(id: string, password: string) {
+	return this.http.get('http://localhost:3000/authUser', {params: { id: id, password: password }})
   }
 
   checkDuplicate(username: string){
@@ -72,18 +61,19 @@ export class AppService{
   }
 
   getPostBops(postId: string){
-	return this.http.get('http://localhost:3000/getPostBops', {params: { id: postId }});
+	return this.http.get('http://localhost:3000/bopsStops/getPostBops', {params: { id: postId }});
   }
 
   getPostStops(postId: string){
-	return this.http.get('http://localhost:3000/getPostStops', {params: { id: postId }});
+	return this.http.get('http://localhost:3000/bopsStops/getPostStops', {params: { id: postId }});
   }
 
   userHasBopped(postId: string){
-	return this.http.get('http://localhost:3000/userHasBopped', {params: { id: postId }});
+	return this.http.get('http://localhost:3000/bopsStops/userHasBopped', {params: { id: postId, user: this.currentUser }});
   }
 
   userHasStopped(postId: string){
-	return this.http.get('http://localhost:3000/userHasStopped', {params: { id: postId }});
+	return this.http.get('http://localhost:3000/bopsStops/userHasStopped', {params: { id: postId, user: this.currentUser }});
   }
+
 }

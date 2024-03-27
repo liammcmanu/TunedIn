@@ -27,10 +27,13 @@ ngOnInit() {
 		this.isSignupOrSignInScreen = this.router.url === '/sign-in' || this.router.url === '/sign-up';
 	});
 	const userId = this.appService.getCurrentUser();
+	console.log(userId);
 	if (userId) {
 		this.appService.findProfile(userId).subscribe((value: any) => {
 			this.user = value;
 		});
+	} else {
+		this.router.navigate(['sign-in']);
 	}
 }
 

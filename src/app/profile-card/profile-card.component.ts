@@ -19,11 +19,9 @@ export class ProfileCardComponent implements OnInit {
 
 	ngOnInit() {
 		this.appService.initialising();
-		this.appService.returnCurrentUser().subscribe((value: any) => {
-			if (!value.id) {
-				this.router.navigate(['/sign-in']);
-			}
-		});
+		if (!this.appService.getCurrentUser()) {
+			this.router.navigate(['/sign-in']);
+		}
 		console.log(this.appService.currentUser)
 		this.appService.getProfiles.subscribe((profiles: any) => {
 			this.profiles = profiles;

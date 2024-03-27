@@ -11,6 +11,6 @@ export class SpotifyService {
 	}
 
 	searchSongs(search: any){
-		return this.http.post('http://localhost:3000/profile', search)
+		return this.http.post('http://localhost:3000/spotify/search', search)
 	}
 }

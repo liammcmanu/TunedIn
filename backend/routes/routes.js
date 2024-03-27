@@ -1,9 +1,11 @@
 var express = require("express");
 var ObjectId = require("mongodb").ObjectId;
-var { user, posts, prompts, bops, stops } = require("../profile-schema.js");
-var app = express();
-var spotify = require('../spotify/routes.js');
 var bycrpt = require('bcryptjs');
+var app = express();
+
+var { user, posts, prompts, bops, stops } = require("../profile-schema.js");
+var spotify = require('../spotify/routes.js');
+var bopsStops = require('../bopsStops/routes.js');
 
 var currentUser = undefined;
 
@@ -17,15 +19,8 @@ app.use(function (req, res, next) {
 
 })
 
+app.use('/bopsStops', bopsStops)
 app.use('/spotify', spotify)
-
-app.post("/current-user", (req) => {
-	currentUser = req.body.id
-})
-
-app.get("/current-user", (req, res) => {
-	res.send({id: currentUser});
-})
 
 app.get("/profiles", async (req, res) => {
 	try {
@@ -100,54 +95,5 @@ app.get("/checkDuplicate", async (req, res) => {
 	} catch (error) {
 		res.status(500).send(error);
 	}});
-
-app.get("/getPostStops", async (req, res) => {
-	try {
-		const foundStops = await stops.find({ post: req.query.id });
-		res.send({ count: foundStops.length });
-	} catch (error) {
-		console.log(error);
-		res.status(500).send(error);
-	}
-});
-
-app.get("/getPostBops", async (req, res) => {
-	try {
-		const foundBops = await bops.find({ post: req.query.id });
-		res.send({ count: foundBops.length });
-	} catch (error) {
-		console.log(error);
-		res.status(500).send(error);
-	}
-});
-
-
-app.get('/userHasBopped', async (req, res) => {
-	try {
-		const foundBop = await bops.findOne({ post: req.query.post, user: currentUser });
-		if (foundBop) {
-			res.send({ bopped: true });
-		} else {
-			res.send({ bopped: false });
-		}
-	} catch (error) {
-		res.status(500).send(error);
-	}
-});
-
-app.get('/userHasStopped', async (req, res) => {
-	console.log(currentUser);
-	console.log(req.query.post);
-	try {
-		const foundStop = await stops.findOne({ post: req.query.post, user: currentUser });
-		if (foundStop) {
-			res.send({ stopped: true });
-		} else {
-			res.send({ stopped: false });
-		}
-	} catch (error) {
-		res.status(500).send(error);
-	}
-});
 
 module.exports = app;

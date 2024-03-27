@@ -68,7 +68,7 @@ export class SignInComponent {
 			this.appService.authUser(this.signInForm.value.username, this.signInForm.value.password).subscribe((value: any) => {
 				if (value.authenticated) {
 					this.invalid = false;
-					this.appService.setCurrentUser(value.id.toString());
+					this.appService.setCurrentUser(value.id);
 					this.router.navigate(['/for-you']);
 				} else {
 					this.invalid = true;

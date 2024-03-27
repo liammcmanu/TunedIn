@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ObjectId } from 'mongodb';
 import { AppService } from 'src/app/app.service';
 import { PostModel, UserModel, PromptModel } from 'src/models/postModel';
+import { BopStopService } from '../../services/bopsStops/bopsStops.service';
 
 @Component({
 	selector: 'app-post-card',
@@ -29,7 +29,7 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 	public userHasBopped: boolean | undefined;
 	public userHasStopped: boolean | undefined;
 
-	constructor(private router: Router, private appService: AppService) { }
+	constructor(private router: Router, private appService: AppService, private bopStopService: BopStopService) { }
 
 	ngOnInit(): void {
 		if (this.post) {
@@ -46,6 +46,8 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 		this.isPlaying = document.getElementById('toggle');
 		this.getBops();
 		this.getStops();
+		this.getUserHasBopped();
+		this.getUserHasStopped();
 	}
 
 	ngOnDestroy(): void {
@@ -120,17 +122,47 @@ export class PostCardComponent implements OnInit, OnDestroy, AfterViewInit {
 	public getUserHasStopped() {
 		if (this.post?._id) {
 			this.appService.userHasStopped(this.post?._id).subscribe((value: any) => {
-				this.userHasBopped = value.stopped;
+				this.userHasStopped = value.stopped;
 			});
 		}
 	}
 
 	public bop() {
-		//
+		if (this.userHasBopped) {
+			this.bopStopService.deleteBop(this.post?._id).subscribe();
+			this.bops = this.bops ? this.bops - 1 : 0;
+			this.userHasBopped = false;
+
+		} else {
+			this.bopStopService.bopPost(this.post?._id).subscribe();
+			this.userHasBopped = true;
+			this.bops = this.bops ? this.bops + 1 : 1;
+
+			if (this.userHasStopped) {
+				this.bopStopService.deleteStop(this.post?._id).subscribe();
+				this.userHasStopped = false;
+				this.stops = this.stops ? this.stops - 1 : 0;
+			}
+		}
 	}
 
 	public stop() {
-		// 	if (this.post) {
+		if (this.userHasStopped) {
+			this.bopStopService.deleteStop(this.post?._id).subscribe();
+			this.stops = this.stops ? this.stops - 1 : 0;
+			this.userHasStopped = false;
+
+		} else {
+			this.bopStopService.stopPost(this.post?._id).subscribe();
+			this.userHasStopped = true;
+			this.stops = this.stops ? this.stops + 1 : 1;
+
+			if (this.userHasBopped) {
+				this.bopStopService.deleteBop(this.post?._id).subscribe();
+				this.userHasBopped = false;
+				this.bops = this.bops ? this.bops - 1 : 0;
+			}
+		}
 	}
 
 	public goToProfile(profileId: string | undefined) {
