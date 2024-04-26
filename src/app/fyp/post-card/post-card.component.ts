@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/app.service';
-import { PostModel, UserModel, PromptModel } from 'src/models/postModel';
+import { AppService } from '../../app.service';
+import { PostModel, UserModel, PromptModel } from '../../../models/postModel';
 import { BopStopService } from '../../services/bopsStops/bopsStops.service';
 
 @Component({

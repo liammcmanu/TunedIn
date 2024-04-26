@@ -1,13 +1,13 @@
-.header {
+.destopHeader {
 	background-color: rgba(67, 67, 67, 0.234);
 	box-shadow:
-	rgba(0, 0, 0, 0.25) 0px 54px 55px,
-	rgba(0, 0, 0, 0.12) 0px -12px 30px,
-	rgba(0, 0, 0, 0.12) 0px 4px 6px,
-	rgba(0, 0, 0, 0.17) 0px 12px 13px,
-	rgba(0, 0, 0, 0.09) 0px -3px 5px;
+		rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px,
+		rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px,
+		rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	border: none;
-	text-shadow: 2px 2px 2px rgba(206,89,55,0);
+	text-shadow: 2px 2px 2px rgba(206, 89, 55, 0);
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -20,17 +20,18 @@
 	justify-content: center;
 }
 
-.title {
-	color: white;
-	text-align: center;
+.phoneHeader {
+	border: none;
 	position: fixed;
-	z-index: 100;
-	left: 10px;
-	font-size: 1vh;
+	top: 0;
+	right: 0;
+	z-index: 30;
+	width: 100%;
+	height: 60px;
+	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-left: 10px;
 }
 
 .profilePicture {
@@ -60,21 +61,63 @@
 }
 
 .search::placeholder {
-	color:#aaaaaa6b
+	color: #aaaaaa6b;
 }
 
 .search:hover {
-	background-color:#aaaaaa36;
+	background-color: #aaaaaa36;
 	border: none;
-	outline:none;
+	outline: none;
 }
 
-.search:active {
-	border: rgba(255, 255, 255, 0.46) 2px solid;
-	outline:none;
-}
-
+.search:active,
 .search:focus {
 	border: rgba(255, 255, 255, 0.46) 2px solid;
-	outline:none;
+	outline: none;
+}
+
+@media (min-width: 1024px) {
+	.phone {
+		display: none;
+	}
+
+	.desktop {
+		display: block;
+	}
+
+	.title {
+		color: white;
+		text-align: center;
+		position: fixed;
+		z-index: 100;
+		left: 10px;
+		font-size: 1vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.phone {
+		display: block;
+	}
+
+	.desktop {
+		display: none;
+	}
+
+	.title {
+		color: white;
+		text-align: center;
+		position: fixed;
+		z-index: 100;
+		right: 10px;
+		font-size: 1vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 10px;
+	}
 }
